@@ -6,9 +6,11 @@ class ContactsController < ApplicationController
   def create #Code run when the user clicks 'Submit'
     @contact = Contact.new(contact_params)
     if @contact.save
+      flash[:success] = "Message sent."
       redirect_to new_contact_path, notice: "Message sent." #Redirected to a blank form
     else 
-      redirect_to new_contact_path, notice: "An error occurred."
+      flash[:error] = @contact.errors.full_messages.join("<br />")
+      redirect_to new_contact_path
     end
   end
   
