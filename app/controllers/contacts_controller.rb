@@ -7,9 +7,10 @@ class ContactsController < ApplicationController
     @contact = Contact.new(contact_params)
     if @contact.save
       flash[:success] = "Message sent."
-      redirect_to new_contact_path, notice: "Message sent." #Redirected to a blank form
+      redirect_to new_contact_path #Redirected to a blank form
     else 
-      flash[:error] = @contact.errors.full_messages.join("<br />")
+      #Make sure that the equal is right beside the square bracket
+      flash[:danger]= @contact.errors.full_messages.join(", ")
       redirect_to new_contact_path
     end
   end
