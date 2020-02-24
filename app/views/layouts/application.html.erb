@@ -35,7 +35,9 @@
     <div class="container">
       <% flash.each do |type, msg| %>
         <%= content_tag :div, msg, class: "alert alert-#{type}" %>
+        <!--Inject msg that corresponds to interpolated type (key, class)-->
       <% end %>
+      
     </div>
     <%= yield %>
     

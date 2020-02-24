@@ -3,10 +3,10 @@ class ContactsController < ApplicationController
     @contact = Contact.new #Gets filled out by the form_for code in new.html.erb
   end
   
-  def create #Code run when the user clicks 'Submit'
+  def create #Code runs when the user clicks 'Submit'
     @contact = Contact.new(contact_params)
     if @contact.save
-      flash[:success] = "Message sent."
+      flash[:success]= "Message sent."
       redirect_to new_contact_path #Redirected to a blank form
     else 
       #Make sure that the equal is right beside the square bracket
