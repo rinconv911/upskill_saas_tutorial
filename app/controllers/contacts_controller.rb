@@ -1,28 +1,38 @@
 class ContactsController < ApplicationController
-  def new #This gets invoked whenever a user arrives at the form page
+  
+  # GET request to /contact-us
+  # Show new contact form
+  def new
     @contact = Contact.new #Gets filled out by the form_for code in new.html.erb
   end
   
-  def create #Code runs when the user clicks 'Submit'
+  # POST request /contacts (use rails routes to visualize)
+  # Code runs when the user clicks 'Submit'
+  def create
+    # Mass assignment of form fields into contact object
     @contact = Contact.new(contact_params)
+    # Save the contact object to the database
     if @contact.save
-      
-      #Lifting the values of the form fields and use them in the action
+      # Store form fields via parameters into local variables
       name = params[:contact][:name]
       email  = params[:contact][:email]
       body = params[:contact][:comments]
+      # Plug variables into Contact Mailer email method, and send email
       ContactMailer.contact_email(name, email, body).deliver
-      
+      # Store success message in flash hash and redirect to the new action
       flash[:success]= "Message sent."
       redirect_to new_contact_path #Redirected to a blank form
     else 
-      #Make  sure that the equal is right beside the square bracket
+      # If contact object doesn't save, store errors in flash hash 
+      # and redirect to the new actino
       flash[:danger]= @contact.errors.full_messages.join(", ")
       redirect_to new_contact_path
     end
   end
   
-  private #This is a security feature that whitelists and mass-assigns attributes
+  private
+    # To collect data from form, we need to use strong parameters
+    # and whitelist the form fields
     def contact_params
       params.require(:contact).permit(:name, :email, :comments) 
     end 
