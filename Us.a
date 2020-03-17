@@ -1,0 +1,33 @@
+********************************* 1. row *********************************
+                    id: 1
+                 email: test@example.com
+    encrypted_password: $2a$11$zDPJsRdt/mj3AWE/tMBvqunLcvsaPxLwdLjHZvTMC.o8vnv7teMBG
+  reset_password_token: 
+reset_password_sent_at: 
+   remember_created_at: 
+         sign_in_count: 1
+    current_sign_in_at: 2020-03-14 14:12:46 UTC
+       last_sign_in_at: 2020-03-14 14:12:46 UTC
+    current_sign_in_ip: 2.137.58.139
+       last_sign_in_ip: 2.137.58.139
+            created_at: 2020-03-14 14:12:46 UTC
+            updated_at: 2020-03-14 14:12:46 UTC
+               plan_id: 2
+ stripe_customer_token: cus_GuPYACA7XaowXl
+********************************* 2. row *********************************
+                    id: 2
+                 email: test2@example.com
+    encrypted_password: $2a$11$ZeDKLx6n8bmW4ViuD8r0T.ukTXITy4879t46Ccdu4lR07wlvl2Tn2
+  reset_password_token: 
+reset_password_sent_at: 
+   remember_created_at: 
+         sign_in_count: 1
+    current_sign_in_at: 2020-03-14 14:14:16 UTC
+       last_sign_in_at: 2020-03-14 14:14:16 UTC
+    current_sign_in_ip: 2.137.58.139
+       last_sign_in_ip: 2.137.58.139
+            created_at: 2020-03-14 14:14:16 UTC
+            updated_at: 2020-03-14 14:14:16 UTC
+               plan_id: 2
+ stripe_customer_token: cus_GuPZttURCh0OW8
+2 rows in set
