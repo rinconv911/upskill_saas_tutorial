@@ -1,15 +1,24 @@
 Memberships
-* User should see link for Basic plan on home page
-* User should see link for Pro plan on home page
-* Basic plan link should point to regular Devise sign up form
-* Pro plan link should point to a custom sign up form 
+** User should see link for Basic plan on home page
+** User should see link for Pro plan on home page
+** Basic plan link should point to regular Devise sign up form
+** Pro plan link should point to a custom sign up form 
 
 Stripe integration
 ** Users should have a Stripe customer token in the users table 
 ** Javascript should prevent Pro form from submitting when user fills it out,
 and should send card info to Stripe. Stripe will return a card token 
-* Javascript should send user fields and card token to our Rails app. Rails app
+** Javascript should send user fields and card token to our Rails app. Rails app
 should validate the user fields. Rails app will know whether plan 1 or plan 2
-* Once validated, Rails should send user info (email, plan id) and card token 
+** Once validated, Rails should send user info (email, plan id) and card token 
 to Stripe server, and Stripe will create a subscription and send back customer
 token. Rails should save customer token and user information to our database
+
+User Profiles
+** Each user should have one profile (model to model association)
+** User should see a link to new profile form upon signing up
+  ** Create a controller for the new_user_profile prefix (profiles#new) and
+     add the corresponding action, then add the link to the home page
+* User should be able to create and view their user profile
+* User profile should have a profile picture
+* Users should be able to view all user profiles
