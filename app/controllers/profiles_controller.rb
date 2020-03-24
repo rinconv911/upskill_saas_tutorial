@@ -5,7 +5,7 @@ class ProfilesController  < ApplicationController
   @profile = Profile.new
   end
   
-  # When user makes a POST request to users/:user_id/Profile
+  # When user makes a POST request to users/:user_id/profile
   def create
     # Ensure that we hvae the user who is filling out the form
     @user = User.find(params[:user_id])
