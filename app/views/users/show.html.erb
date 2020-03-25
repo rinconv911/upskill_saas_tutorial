@@ -1,10 +1,20 @@
 <%# @variable.profile possible  due to 
     user-profile resources association %>
-First Name: <%= @user.profile.first_name %><br/>
-Last Name: <%= @user.profile.last_name %><br/>
-Job: <%= @user.profile.job_title %><br/>
-<% if current_user.plan_id == 2 %>
-  Phone number: <%= @user.profile.phone_number %> <br/>
-  Contact email: <%= @user.profile.contact_email %> <br/>
-<% end %>
-Description: <%= @user.profile.description %>
+    
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <div class="text-left">
+        <%= image_tag @user.profile.avatar(:medium) %> <br/><br/>
+        First Name: <%= @user.profile.first_name %><br/>
+        Last Name: <%= @user.profile.last_name %><br/>
+        Job: <%= @user.profile.job_title %><br/>
+        <% if current_user.plan_id == 2 %>
+          Phone number: <%= @user.profile.phone_number %> <br/>
+          Contact email: <%= @user.profile.contact_email %> <br/>
+        <% end %>
+        Description: <%= @user.profile.description %>
+      </div>
+    </div>
+  </div>    
+</div>

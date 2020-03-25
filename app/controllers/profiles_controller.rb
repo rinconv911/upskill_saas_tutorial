@@ -23,6 +23,6 @@ class ProfilesController  < ApplicationController
   # To collect data from form, we need to use strong parameters
   # and whitelist the form fields (so only these can be accepted into our db)
   def profile_params
-    params.require(:profile).permit(:first_name, :last_name, :job_title, :phone_number, :contact_email, :description)
+    params.require(:profile).permit(:first_name, :last_name, :avatar, :job_title, :phone_number, :contact_email, :description)
   end
 end
