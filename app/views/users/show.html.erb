@@ -20,6 +20,8 @@
         <% if current_user.plan_id == 2 %>
           <%= @user.profile.phone_number %> <br/>
           <%= @user.profile.contact_email %> <br/>
+        <% else %>
+          <%= "Create a pro account to see other users' contact details and share yours!" %>
         <% end %>
       </div>
     </div>
