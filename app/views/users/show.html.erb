@@ -6,6 +6,8 @@
     
     <div class="col-md-3 text-center">
       <%= image_tag @user.profile.avatar.url, class: 'avatar-show-img' %>
+      <br/>
+      <%= link_to "Edit", edit_user_profile_path(user_id: current_user.id), class: 'btn btn-default btn-md btn-block edit-profile-button' %>
     </div>
     
     <div class="col-md-6">
@@ -18,13 +20,12 @@
       <div class="well profile-block profile-contact-info">
         <h3>Contact Information</h3>
         <% if current_user.plan_id == 2 %>
-          <%= @user.profile.phone_number %> <br/>
-          <%= @user.profile.contact_email %> <br/>
+          Phone number: <%= @user.profile.phone_number %> <br/>
+          Email: <%= @user.profile.contact_email %> <br/>
         <% else %>
           <%= "Create a pro account to see other users' contact details and share yours!" %>
         <% end %>
       </div>
     </div>
     
-  </div>    
 </div>

@@ -28,6 +28,10 @@
     <%= f.text_area :description, class: 'form-control' %>
   </div>
   <div class="form-group">
-    <%= f.submit "Update profile", class: 'form-control btn btn-primary'  %>
+    <% if current_user.profile %>
+      <%= f.submit "Update profile", class: 'form-control btn btn-primary'  %>
+    <% else %>
+      <%= f.submit "Create profile", class: 'form-control btn btn-primary'  %>
+    <% end %>
   </div>
 <% end %>

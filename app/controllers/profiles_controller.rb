@@ -19,6 +19,17 @@ class ProfilesController  < ApplicationController
     end
   end
   
+  # GET request to /users/:user_id/profile/edit
+  def edit
+    @user = User.find(params[:user_id])
+    @profile = @user.profile
+  end
+  
+  # PATCH request to /users/:user_id/profile
+  def update
+    
+  end
+  
   private
   # To collect data from form, we need to use strong parameters
   # and whitelist the form fields (so only these can be accepted into our db)
