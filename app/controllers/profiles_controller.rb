@@ -1,4 +1,7 @@
 class ProfilesController  < ApplicationController
+  before_action :authenticate_user!
+  before_action :only_current_user
+  
   # When user makes a GET request to /users/:user_id/profile/new
   def new
     # Render a blank profile details form
@@ -34,7 +37,7 @@ class ProfilesController  < ApplicationController
     # Mass assign edited profile attributes and save (AKA update)
     if @profile.update_attributes(profile_params)
       flash[:success] = "Profile updated"
-      # Redirect user to their profile page
+      # Redirect user to their profile page (params come from FORM ACTION)
       redirect_to user_path(id: params[:user_id])
     else 
       render action: :edit
@@ -42,9 +45,14 @@ class ProfilesController  < ApplicationController
   end
   
   private
-  # To collect data from form, we need to use strong parameters
-  # and whitelist the form fields (so only these can be accepted into our db)
-  def profile_params
-    params.require(:profile).permit(:first_name, :last_name, :avatar, :job_title, :phone_number, :contact_email, :description)
-  end
+    # To collect data from form, we need to use strong parameters
+    # and whitelist the form fields (so only these can be accepted into our db)
+    def profile_params
+      params.require(:profile).permit(:first_name, :last_name, :avatar, :job_title, :phone_number, :contact_email, :description)
+    end
+    
+    def only_current_user
+      @user = User.find(params[:user_id])
+      redirect_to(root_path) unless @user == current_user
+    end
 end
