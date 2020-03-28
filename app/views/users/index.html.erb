@@ -19,7 +19,12 @@
                   <% end %>
                   <p><%= u.profile.job_title %></p>
                 </div>
-              </div>
+                <div class="col-sm-4 text-right">
+                  <% if u.plan_id == 2 %>
+                    <span class="label label-success">PRO</span>
+                  <% end %>
+                </div>
+              </div> 
             </li>
           <% end %>
         <% end %>

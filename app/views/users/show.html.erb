@@ -8,6 +8,7 @@
       <%= image_tag @user.profile.avatar.url, class: 'avatar-show-img' %>
       <br/>
       <%= link_to "Edit", edit_user_profile_path(user_id: current_user.id), class: 'btn btn-default btn-md btn-block edit-profile-button' %>
+      <%= link_to "Settings", edit_user_registration_path, class: 'btn btn-default btn-md btn-block edit-profile-button' %>
     </div>
     
     <div class="col-md-6">
